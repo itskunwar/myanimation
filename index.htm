@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        #container{
+            width:400px;
+            height:400px;
+            position: relative;
+            background-color:black;
+            box-shadow:0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+        }
+        #animate{
+            width:50px;
+            height:50px;
+            position: absolute;
+            background-color: red;
+            box-shadow:0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+        }
+    </style>
+    <body>
+        <h3>Here goes my first animation</h3>
+        <br>
+        <button type="button" onclick="moveIt()">Start Animation</button>
+        <br>
+        <br>
+
+        <div id="container">
+            <div id="animate"></div>
+        </div>
+        
+        <script>
+            function moveIt(){
+                var elem=document.getElementById("animate");
+                var pos =0;
+                var id  = setInterval(frame,1);
+                var id1;
+                
+                
+                
+                function frame(){
+                    
+                    if((pos) == 1400)
+                    {
+                        
+                        
+                        id1 = setInterval(frame1,1);
+                        clearInterval(id);
+                        
+                        
+                    }
+                    else{
+                        document.getElementById("container").style.left=(pos/1.47) + "px";
+                        if(pos>=0 && pos<350){
+                        pos++;
+                        document.getElementById("container").style.backgroundColor="black";
+                        elem.style.backgroundColor="red";
+                        elem.style.left=pos+"px";
+                       }
+                       else if(pos>=350 && pos<700)
+                       {
+                        pos++;
+                        document.getElementById("container").style.backgroundColor="green";
+                        elem.style.backgroundColor="yellow";
+                        elem.style.top=(pos-350) + "px";
+                       }
+                       else if(pos>=700 && pos<1050)
+                       {
+                        pos++;
+                        document.getElementById("container").style.backgroundColor="rgb(76, 173, 218)";
+                        elem.style.backgroundColor="black";
+                        elem.style.left=(1050-pos)+"px";
+                       }
+                       else{
+                        pos++;
+                        document.getElementById("container").style.backgroundColor="gray";
+                        elem.style.backgroundColor="rgb(76, 173, 218)";
+                        elem.style.top=(1400-pos)+"px";
+                       }
+                    }
+                }
+                function frame1(){
+
+                    if((pos) == 0)
+                    {
+                        
+                        
+                        id  = setInterval(frame,1);
+                        clearInterval(id1);
+                        
+                        
+                    }
+                    else{
+                        document.getElementById("container").style.left=(pos/1.47) + "px";
+                       if(pos>0 && pos<=350){
+                        pos--;
+                        document.getElementById("container").style.backgroundColor="black";
+                        elem.style.backgroundColor="red";
+                        elem.style.left=pos+"px";
+                       }
+                       else if(pos>350 && pos<=700)
+                       {
+                        pos--;
+                        document.getElementById("container").style.backgroundColor="green";
+                        elem.style.backgroundColor="yellow";
+                        elem.style.top=(pos-350) + "px";
+                       }
+                       else if(pos>700 && pos<=1050)
+                       {
+                        pos--;
+                        document.getElementById("container").style.backgroundColor="rgb(76, 173, 218)";
+                        elem.style.backgroundColor="black";
+                        elem.style.left=(1050-pos)+"px";
+                       }
+                       else{
+                        pos--;
+                        document.getElementById("container").style.backgroundColor="gray";
+                        elem.style.backgroundColor="rgb(76, 173, 218)";
+                        elem.style.top=(1400-pos)+"px";
+                       }
+                    }
+                }
+            }
+                
+            
+            
+        </script>
+    </body>
+</html>
